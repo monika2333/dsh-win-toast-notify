@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check
+        run: node --check index.js
+      - name: Manifest and bundle checks
+        run: |
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          if (!pkg.dsh || !pkg.dsh.bundle || !pkg.dsh.bundle.patch) throw new Error('dsh.bundle.patch is required');
+          if (!fs.existsSync(pkg.dsh.bundle.patch)) throw new Error('patch file missing: ' + pkg.dsh.bundle.patch);
+          for (const f of ['index.js', 'icon.svg', 'LICENSE', 'README.md', 'README.zh.md']) {
+            if (!fs.existsSync(f)) throw new Error('missing file: ' + f);
+          }
+          const locales = fs.readdirSync('locale');
+          for (const l of locales) JSON.parse(fs.readFileSync('locale/' + l, 'utf8'));
+          const exports = Object.keys(pkg.exports || {});
+          for (const key of ['./locale/*.json', './icon']) {
+            if (!exports.includes(key)) throw new Error('missing export: ' + key);
+          }
+          console.log('ok', pkg.name, pkg.version, locales.join(','));
+          "
