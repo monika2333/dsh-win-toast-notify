@@ -31,10 +31,10 @@
   "author": "Monica2333",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Monica2333/dsh-win-toast-notify.git"
+    "url": "git+https://github.com/monika2333/dsh-win-toast-notify.git"
   },
-  "homepage": "https://github.com/Monica2333/dsh-win-toast-notify#readme",
-  "bugs": "https://github.com/Monica2333/dsh-win-toast-notify/issues",
+  "homepage": "https://github.com/monika2333/dsh-win-toast-notify#readme",
+  "bugs": "https://github.com/monika2333/dsh-win-toast-notify/issues",
   "engines": {
     "node": ">=22"
   },
