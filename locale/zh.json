@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Windows 完成通知",
+    "description": "每个回合结束时弹出 Windows 原生通知，提醒你这轮任务已经做完。"
+  }
+}

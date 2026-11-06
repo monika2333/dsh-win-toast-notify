@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Windows Completion Toast",
+    "description": "Shows a native Windows notification whenever a turn finishes."
+  }
+}

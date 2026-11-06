@@ -1,0 +1,47 @@
+{
+  "name": "dsh-win-toast-notify",
+  "version": "0.1.0",
+  "description": "Native Windows toast when a DeepSeek Harness turn finishes: session title, a preview of the final reply and the elapsed time.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "notification",
+    "toast",
+    "windows",
+    "desktop"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "LICENSE",
+    "README.md",
+    "README.zh.md"
+  ],
+  "license": "MIT",
+  "author": "Monica2333",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monica2333/dsh-win-toast-notify.git"
+  },
+  "homepage": "https://github.com/Monica2333/dsh-win-toast-notify#readme",
+  "bugs": "https://github.com/Monica2333/dsh-win-toast-notify/issues",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" }
+  }
+}

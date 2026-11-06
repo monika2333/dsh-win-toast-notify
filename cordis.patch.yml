@@ -1,0 +1,15 @@
+- insert:
+    - id: dsh-win-toast-notify
+      name: dsh-win-toast-notify
+      config:
+        enabled: true
+        titlePrefix: DeepSeek Harness
+        previewChars: 160
+        includeSubagents: false
+        sound: true
+        reasons:
+          - completed
+          - error
+          - blocked
+          - max-tokens
+          - interrupted
